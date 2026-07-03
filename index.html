@@ -11,7 +11,7 @@
     <section id="login" class="login-container">
         <div class="login-card">
             <h1>🌿 Tacho Inteligente</h1>
-            <p>Control web ESP32</p>
+            <p>Control web ESP32 + HiveMQ</p>
 
             <input type="text" id="usuario" placeholder="Usuario">
             <input type="password" id="password" placeholder="Contraseña">
@@ -25,7 +25,12 @@
     <section id="panel" class="panel-container oculto">
         <div class="panel-card">
             <h1>🌱 Panel del Tacho Inteligente</h1>
-            <p class="subtitulo">Naturaleza + Tecnología + ESP32</p>
+            <p class="subtitulo">Naturaleza + Tecnología + ESP32 + HiveMQ</p>
+
+            <div class="estado-mqtt">
+                <span id="luzMQTT" class="luz roja"></span>
+                <p id="textoMQTT">Desconectado de HiveMQ</p>
+            </div>
 
             <div class="control">
                 <span id="luzPower" class="luz roja"></span>
@@ -40,18 +45,18 @@
             <div class="capacidad-box">
                 <h2>Capacidad del basurero</h2>
                 <div class="barra">
-                    <div id="barraCapacidad" class="barra-interna">65%</div>
+                    <div id="barraCapacidad" class="barra-interna">0%</div>
                 </div>
             </div>
 
-            <div id="alerta" class="alerta">
+            <div id="alerta" class="alerta oculto">
                 ⚠️ Alerta: el basurero está por llenarse
             </div>
 
             <div class="control">
                 <span id="luzAbrir" class="luz roja"></span>
-                <h2>Abrir tapa</h2>
-                <button id="btnAbrir" class="boton-normal">Abrir</button>
+                <h2>Abrir / Cerrar tapa</h2>
+                <button id="btnAbrir" class="boton-normal">Abrir/Cerrar</button>
             </div>
 
             <div class="control">
@@ -64,6 +69,7 @@
         </div>
     </section>
 
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
