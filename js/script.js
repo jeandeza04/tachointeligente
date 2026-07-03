@@ -138,9 +138,32 @@ function actualizarPanel(datos) {
     barraCapacidad.style.width = capacidad + "%";
     barraCapacidad.textContent = capacidad + "%";
 
-    if (capacidad >= 90) {
+    // =======================
+    // ALERTAS DE CAPACIDAD
+    // =======================
+
+    if (capacidad >= 100) {
+
         alerta.classList.remove("oculto");
-    } else {
+        alerta.innerHTML =
+        "🚫 <strong>Basurero lleno</strong><br>Por favor utilice otro basurero.";
+        alerta.style.background = "rgba(220,38,38,0.25)";
+        alerta.style.borderColor = "#ef4444";
+        alerta.style.color = "#fecaca";
+    }
+    else if (capacidad >= 80) {
+
+        alerta.classList.remove("oculto");
+
+        alerta.innerHTML =
+        "⚠️ <strong>Advertencia</strong><br>El basurero está por llenarse.";
+
+        alerta.style.background = "rgba(234,179,8,0.25)";
+        alerta.style.borderColor = "#eab308";
+        alerta.style.color = "#fde68a";
+    }
+    else {
+
         alerta.classList.add("oculto");
     }
 
