@@ -23,10 +23,10 @@ const textoMQTT = document.getElementById("textoMQTT");
 // =======================
 // CONFIGURACION HIVEMQ
 // =======================
-const MQTT_HOST = "af8f13badf6f44db8e95a17b2348c110.s1.eu.hivemq.cloud";
-const MQTT_PORT = 8884;
-const MQTT_USER = "JeanDeza";
-const MQTT_PASSWORD = "Jean2004";
+const MQTT_HOST = "d9c74a204f0c4e0db7ac3f4fb75f26aa.s1.eu.hivemq.cloud";
+const MQTT_PORT = 8883;
+const MQTT_USER = "Rossebel";
+const MQTT_PASSWORD = "Arbolpt2003@";
 
 const TOPIC_COMANDO = "tacho/comando";
 const TOPIC_DATOS = "tacho/datos";
