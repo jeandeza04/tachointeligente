@@ -20,11 +20,10 @@ const alerta = document.getElementById("alerta");
 const luzMQTT = document.getElementById("luzMQTT");
 const textoMQTT = document.getElementById("textoMQTT");
 
-// =======================
 // CONFIGURACION HIVEMQ
-// =======================
+
 const MQTT_HOST = "d9c74a204f0c4e0db7ac3f4fb75f26aa.s1.eu.hivemq.cloud";
-const MQTT_PORT = 8883;
+const MQTT_PORT = 8884;
 const MQTT_USER = "Rossebel";
 const MQTT_PASSWORD = "Arbolpt2003@";
 
@@ -34,9 +33,8 @@ const TOPIC_DATOS = "tacho/datos";
 let mqttClient = null;
 let tapaAbierta = false;
 
-// =======================
 // LOGIN
-// =======================
+
 function iniciarSesion() {
     if (usuario.value === "admin" && password.value === "123456") {
         login.classList.add("oculto");
@@ -58,9 +56,8 @@ function cerrarSesion() {
     mensajeError.textContent = "";
 }
 
-// =======================
 // LUCES
-// =======================
+
 function ponerVerde(luz) {
     luz.classList.remove("roja");
     luz.classList.add("verde");
@@ -71,9 +68,9 @@ function ponerRojo(luz) {
     luz.classList.add("roja");
 }
 
-// =======================
+
 // MQTT
-// =======================
+
 function conectarMQTT() {
     if (mqttClient) return;
 
@@ -127,9 +124,9 @@ function enviarComando(comando) {
     }
 }
 
-// =======================
+
 // ACTUALIZAR PANEL
-// =======================
+
 function actualizarPanel(datos) {
     const capacidad = datos.capacidad;
     const encendido = datos.encendido;
@@ -138,9 +135,7 @@ function actualizarPanel(datos) {
     barraCapacidad.style.width = capacidad + "%";
     barraCapacidad.textContent = capacidad + "%";
 
-    // =======================
     // ALERTAS DE CAPACIDAD
-    // =======================
 
     if (capacidad >= 100) {
 
@@ -182,9 +177,9 @@ function actualizarPanel(datos) {
     }
 }
 
-// =======================
+
 // BOTON ENCENDER / APAGAR
-// =======================
+
 btnPower.addEventListener("change", function () {
     if (btnPower.checked) {
         enviarComando("ENCENDER");
@@ -193,9 +188,8 @@ btnPower.addEventListener("change", function () {
     }
 });
 
-// =======================
-// ABRIR / CERRAR CON 3 CLICS
-// =======================
+// ABRIR / CERRAR
+
 let contadorAbrir = 0;
 let tiempoAbrir = null;
 
@@ -219,9 +213,8 @@ btnAbrir.addEventListener("click", function () {
     }
 });
 
-// =======================
-// REINICIAR CON 3 CLICS
-// =======================
+// REINICIAR
+
 let contadorReiniciar = 0;
 let tiempoReiniciar = null;
 
