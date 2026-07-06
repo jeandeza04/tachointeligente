@@ -24,11 +24,14 @@ const textoMQTT = document.getElementById("textoMQTT");
 
 const MQTT_HOST = "d9c74a204f0c4e0db7ac3f4fb75f26aa.s1.eu.hivemq.cloud";
 const MQTT_PORT = 8884;
+const MQTT_PATH = "/mqtt";
+
 const MQTT_USER = "Rossebel";
 const MQTT_PASSWORD = "Arbolpt2003@";
 
 const TOPIC_COMANDO = "tacho/comando";
-const TOPIC_DATOS = "tacho/datos";
+const TOPIC_DATOS = "tacho/telemetria";
+const TOPIC_NIVEL = "tacho/nivel";
 
 let mqttClient = null;
 let tapaAbierta = false;
