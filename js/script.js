@@ -77,7 +77,7 @@ function ponerRojo(luz) {
 function conectarMQTT() {
     if (mqttClient) return;
 
-    const url = `wss://${MQTT_HOST}:${MQTT_PORT}/mqtt`;
+    const url = `wss://${MQTT_HOST}:${MQTT_PORT}${MQTT_PATH}`;
 
     mqttClient = mqtt.connect(url, {
         username: MQTT_USER,
