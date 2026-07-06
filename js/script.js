@@ -131,16 +131,16 @@ function enviarComando(comando) {
 // ACTUALIZAR PANEL
 
 function actualizarPanel(datos) {
-    const capacidad = datos.capacidad;
-    const encendido = datos.encendido;
-    tapaAbierta = datos.tapa === "abierta";
+    const capacidad = datos.llenado;
+    const encendido = datos.automatico;
+    tapaAbierta = datos.tapa_abierta === true;
 
     barraCapacidad.style.width = capacidad + "%";
     barraCapacidad.textContent = capacidad + "%";
 
     // ALERTAS DE CAPACIDAD
 
-    if (capacidad >= 100) {
+    if (capacidad >= 85) {
 
         alerta.classList.remove("oculto");
         alerta.innerHTML =
@@ -185,9 +185,9 @@ function actualizarPanel(datos) {
 
 btnPower.addEventListener("change", function () {
     if (btnPower.checked) {
-        enviarComando("ENCENDER");
+        enviarComando("auto_on");
     } else {
-        enviarComando("APAGAR");
+        enviarComando("auto_off");
     }
 });
 
@@ -233,7 +233,7 @@ btnReiniciar.addEventListener("click", function () {
     if (contadorReiniciar >= 3) {
         contadorReiniciar = 0;
 
-        enviarComando("REINICIAR");
+        enviarComando("RESET");
 
         ponerVerde(luzReiniciar);
 
